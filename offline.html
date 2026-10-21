@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connection Lost</title>
+<style>
+@font-face{font-family:Minecraftia;src:url(Minecraftia.woff2) format("woff2"),url(Minecraftia.ttf) format("truetype")}
+*{box-sizing:border-box;margin:0}
+body{min-height:100svh;display:grid;place-items:center;text-align:center;padding:24px;color:#f3eefc;font:14px/1.9 Minecraftia,monospace;background:linear-gradient(rgba(11,16,48,.75),rgba(11,16,48,.95)),url(dusk.jpg) center/cover #0b1030}
+svg{width:112px;height:112px;shape-rendering:crispEdges;animation:shake 1.2s steps(2) infinite}
+@keyframes shake{50%{transform:translateX(4px)}}
+h1{margin:20px 0 4px;font-size:clamp(20px,5vw,34px);color:#f7a8c8;text-shadow:3px 3px 0 #000}
+.bar{width:min(320px,80vw);height:18px;margin:24px auto;background:#000;border:3px solid #8f8f8f;overflow:hidden}
+.bar i{display:block;width:30%;height:100%;background:#5da130;animation:go 1.6s steps(8) infinite}
+@keyframes go{from{margin-left:-30%}to{margin-left:100%}}
+button{font:inherit;cursor:pointer;padding:14px 26px;color:#fff;background:#8f8f8f;border:0;box-shadow:0 0 0 3px #000,inset -4px -4px 0 #555,inset 4px 4px 0 #c6c6c6;text-shadow:2px 2px 0 #3f3f3f}
+button:focus-visible{outline:3px solid #f5c542;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 8 8" aria-hidden="true"><rect width="8" height="8" fill="#5da130"/><g fill="#000"><rect x="1" y="1" width="2" height="2"/><rect x="5" y="1" width="2" height="2"/><rect x="3" y="3" width="2" height="1"/><rect x="2" y="4" width="4" height="2"/><rect x="2" y="6" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/></g></svg>
+<h1>Connection Lost</h1>
+<p>Disconnected: you are offline.<br>Check your internet and reconnect.</p>
+<div class="bar"><i></i></div>
+<button id="retry">Reconnect</button>
+</main>
+<script>
+const back = () => fetch("./", {cache:"no-store"}).then(() => location.replace("./")).catch(() => {});
+document.getElementById("retry").onclick = back;
+addEventListener("online", back);
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cherry Grove SMP – Update Log &amp; Graveyard</title>
+<meta name="theme-color" content="#0b1030">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="petals" aria-hidden="true"></canvas>
+<header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-text">
+    <h1>Cherry Grove SMP</h1>
+    <p class="sub">Every server update, and a graveyard for your last words.</p>
+    <a class="btn" href="#updates">Update log</a>
+    <a class="btn" href="#graveyard">Graveyard</a>
+  </div>
+</header>
+<main>
+  <section id="updates">
+    <h2>Update Log</h2>
+    <div class="timeline" id="timeline"></div>
+  </section>
+  <section id="graveyard">
+    <h2>Graveyard</h2>
+    <p class="lead">Leave one message on a tombstone. Every visitor can read it.</p>
+    <form id="form" class="panel">
+      <label for="name">Name (optional)</label>
+      <input id="name" maxlength="20" autocomplete="off" placeholder="Unknown Player">
+      <label for="msg">Your message</label>
+      <textarea id="msg" maxlength="120" rows="3" required></textarea>
+      <small id="count">0 / 120</small>
+      <button class="btn" type="submit">Place tombstone</button>
+      <p id="status" role="status"></p>
+    </form>
+    <div class="yard" id="yard"></div>
+  </section>
+</main>
+<footer>Fan site. Not an official Minecraft product and not approved by or associated with Mojang or Microsoft.</footer>
+<script src="script.js"></script>
+</body>
+</html>
